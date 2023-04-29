@@ -1,0 +1,239 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome Icon cdn link is given below. -->
+    <script src="https://kit.fontawesome.com/8b9110ef0c.js" crossorigin="anonymous"></script>
+    <!-- Google Font cdn link is given below. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <!-- Eexternal CSS link is given below. -->
+    <link rel="stylesheet" href="./Css/style.css">
+    <link rel="shortcut icon" type="x-icon" href="./Image/favicon (3).png">
+    <title>সফলতার ডাক</title>
+</head>
+
+
+
+<%- include("layout/header") %>
+
+    <!-- Header is finished ! -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-heading 
+        ">সফলতার ডাক
+            </h1>
+            <p class="hero-discription">
+                একটি পরিষ্কার ইসলামিক ওয়েবসাইট, <br> যেখানে আপনি আপনার ইসলামিক জ্ঞান সমৃদ্ধ করতে পারবেন। এখানে আপনি
+                ইসলামিক বইগুলো খুঁজে পেতে পারবেন এবং আপনার অভিজ্ঞতা এবং পরিচিতি ও বিভিন্ন ইসলামিক বাণী এবং বার্তা দিয়ে
+                অন্যদের উপকার করতে পারেন। সাফল্যের জন্য সাথে থাকুন এবং আপনার স্বপ্নগুলিকে বাস্তবে পরিণত করুন।
+            </p>
+        </div>
+    </section>
+
+    <div class="section-wrapper">
+        <h2 class="common-heading">
+            সাম্প্রতিক লিখনি সমূহ
+        </h2>
+        <section class="writting-section">
+            <% userApprovedStories.sort(function(a, b) { return new Date(b.post_time) - new Date(a.post_time); });
+                userApprovedStories.forEach(story=>{
+                if(userApprovedStories.indexOf(story) < 2){ %>
+
+                    <div class="content-1">
+                        <div class="image-content"> <img src="<%= story.storyimage %>" alt="dynamic-content Image">
+                        </div>
+                        <a href="/likhoni#<%= story.story_title %>">
+                            <div class="text-content">
+                                <div class="story-header">
+                                    <div class="storyTitle-and-postTime">
+                                        <h4>
+                                        </h4>
+
+                                        <% const postDate=new Date(story.post_time); const currentDate=new Date(); const
+                                            timeDiff=Math.floor((currentDate - postDate) / (1000 * 60 * 60 * 24)); %>
+                                            <h4>
+                                                <%= timeDiff %> days ago
+                                            </h4>
+
+                                    </div>
+                                    <h1>
+                                        <%= story.story_title %>
+                                    </h1>
+                                </div>
+                                <div class="story">
+                                    <p>
+                                        <%= story.story %>
+                                    </p>
+                                </div>
+                                <div class="authorProfile-and-readMoreLink">
+                                    <div class="author-profile">
+                                        <!-- <% let profile_serial=Math.floor(Math.random() * 12) + 1; %>
+                                        <div class="author-image"><img src="./Image/profile (<%= profile_serial %>).png"
+                                                alt="Author Image">
+                                        </div> -->
+                                        <div class="author-name">
+                                            <h4>
+                                                <%= story.writter_name %>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <h4 class="read-more-link">আরো পড়ুন <i class="fa-solid fa-arrow-right"></i>
+                                    </h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <%}%>
+                        <% }) %>
+
+                            <div class="content-1">
+                                <div class="image-content"> <img src="./Image/iman.jpg" alt="Content-1 Image"></div>
+                                <a href="/likhoni#ঈমান কাকে বলে?">
+                                    <div class="text-content">
+                                        <div class="story-header">
+                                            <div class="storyTitle-and-postTime">
+                                                <h4></h4>
+                                                <h4>3 days ago</h4>
+                                            </div>
+                                            <h1>ঈমান কাকে বলে?</h1>
+                                        </div>
+                                        <div class="story">
+                                            <p>ইসলামি পরিভাষায় শরিয়তের যাবতীয় বিধি বিধান অন্তরে বিশ্বাস করা মুখে স্বীকার
+                                                করা এবং
+                                                তদনুযায়ী আমল করাকে ইমান বলে৷
+
+                                                ইমানের পরিচয় সম্পর্কে বাসুলুল্লাহ (সা.) বলেনঃ
+                                                اَنْ تُوْمِنَ بِاللّٰهِ وَمَلَا ءِكَتِهٖ وَ كُتُبِهٖ وَرُسُلِهٖ
+                                                وَالْيَوْمِ
+                                                الْاٰخِرِ وَتُوْمِنَ بِالْقَدَرِخَيْرِهٖ وَشَرِْهٖ
+
+                                                অর্থঃ ইমান হচ্ছে আল্লাহ তার ফেরেশতাকুল, কিতাবসমূহ, রাসুলগণ, পরকাল এবং
+                                                ভাগ্যের
+                                                ভালো মন্দের (ভালো মন্দ আল্লাহ তায়ালার পক্ষ থেকেই হয়) প্রতি বিশ্বাস
+                                                স্থাপন করা৷
+                                                "(মুসলিম)"
+
+                                                প্রকৃতপক্ষে ইসলামের মূল বিষয়গুলোর প্রতি পূর্ণ বিশ্বাসকেই ইমান বলা হয়।
+                                                ইমানের
+                                                মৌলিক বিষয়গুলো আল্লাহর বাণী আল-কুরআন ও রাসুলুল্লাহ (স.) এর পবিত্র হাদিসে
+                                                বিস্তৃতভাবে বর্ণনা করা হয়েছে৷ ইমানে মুফাসসালে ইমানের মৌলিক বিষয়গুলো
+                                                একত্রে
+                                                বর্ণিত হয়েছে৷ যেমনঃ
+                                                اٰمَنْتُ بِاللّٰهِ وَمَلَا ءِكَتِهٖ وَكُتُبِهٖ وَرُسُلِهٖ وَالْيَوْمِ
+                                                الْاٰخِرِ
+                                                وَالْقَدْرِ خَيْرِهٖ وَشَرِْهٖ مِنَ اللّٰهِ تَعَا لٰي وَالْبَعْثِ
+                                                بَعْدَالْمَوْتِ
+
+                                                অর্থঃ আমি ইমান আনলাম আল্লাহর প্রতি, তাঁর ফেরেশতাগণের প্রতি, তাঁর
+                                                কিতাবগুলোর
+                                                প্রতি, তাঁর রাসুলগণের প্রতি, আখিরাতের প্রতি, তকদিরের প্রতি যার ভালো মন্দ
+                                                আল্লাহ
+                                                তায়ালার নিকট থেকেই হয় এবং মৃত্যুর পর পুনঃরুথানের প্রতি৷" বর্ণিত
+                                                বিষয়গুলোর প্রতি
+                                                সুদৃঢ় আস্থা ও বিশ্বাস ব্যতীত ইমানদার হওয়া যায় না৷ আর যিনি এগুলোতে পূর্ণ
+                                                বিশ্বাস
+                                                স্থাপন করেন তাকে মুমিন বলা হয়৷</p>
+                                        </div>
+                                        <div class="authorProfile-and-readMoreLink">
+                                            <div class="author-profile">
+
+                                                <div class="author-name">
+                                                    <h4>আব্দুল্লাহ</h4>
+                                                </div>
+                                            </div>
+                                            <h4 class="read-more-link">আরো পড়ুন <i class="fa-solid fa-arrow-right"></i>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+        </section>
+    </div>
+
+    <div class="book-section-wrapper">
+        <h2 class="common-heading">
+            সাম্প্রতিক বই সমূহ
+        </h2>
+        <section class="book-section">
+
+
+            <!-- Dynamyc book -->
+
+            <% userBooks.sort(function(a, b) { return new Date(b.post_time) - new Date(a.post_time); });
+                userBooks.forEach(book=>{
+                if(userBooks.indexOf(book) < 2){ %>
+
+                    <div class="book-container">
+
+                        <a href="/all-books#<%= book.book_name %>">
+                            <div class="book-cover-image">
+                                <% var storyImage=book.storyimage; if (storyImage) {
+                                    storyImage=storyImage.replace('public',''); } %>
+                                    <img src="<%= storyImage %>" alt="Book Cover">
+                            </div>
+                        </a>
+
+                        <a href="<%= book.book_reading_link %>" class="book-reading-link">
+                            <div class="book-reading-container">
+                                পড়ে দেখুন
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                        </a>
+
+                        <% var book_download_link=book.book_reading_link; if (book_download_link) {
+                            book_download_link=book_download_link.replace('/edit','/export?format=pdf'); } %>
+                            <a href="<%= book_download_link %>" class="book-download-link">
+                                <div class="book-download-container">
+                                    ডাউনলোড করুন
+                                    <i class="fa-solid fa-download"></i>
+                                </div>
+                            </a>
+
+                    </div>
+                    <%}%>
+                        <% }) %>
+
+
+                            <div class="book-container">
+
+                                <a href="/all-books#যাকাতের ফাযায়েল মাসায়েল">
+                                    <div class="book-cover-image">
+                                        <img src="./Image/book-image (1).jpg" alt="Book Cover">
+                                    </div>
+                                </a>
+
+                                <a href="https://docs.google.com/document/d/1BzPcVW4jrP0sDanzuqB4tts2__h3BQsH/edit"
+                                    class="book-reading-link">
+                                    <div class="book-reading-container">
+                                        পড়ে দেখুন
+                                        <i class="fa-solid fa-book-open"></i>
+                                    </div>
+                                </a>
+
+                                <a href="https://docs.google.com/document/d/1BzPcVW4jrP0sDanzuqB4tts2__h3BQsH/export?format=pdf"
+                                    class="book-download-link">
+                                    <div class="book-download-container">
+                                        ডাউনলোড করুন
+                                        <i class="fa-solid fa-download"></i>
+                                    </div>
+                                </a>
+
+                            </div>
+        </section>
+    </div>
+    <!-- Content Section is finished !  -->
+
+    <%- include("layout/footer") %>
+
+        <!-- Footer Section is finished ! -->
+
+        <script src="./Js/main.js"></script>
+
+        </body>
+
+</html>

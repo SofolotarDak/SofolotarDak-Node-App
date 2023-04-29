@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome Icon cdn link is given below. -->
+    <script src="https://kit.fontawesome.com/8b9110ef0c.js" crossorigin="anonymous"></script>
+    <!-- Google Font cdn link is given below. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+    <!-- Eexternal CSS link is given below. -->
+    <link rel="stylesheet" href="./Css/style.css" />
+    <link rel="shortcut icon" type="x-icon" href="./Image/favicon (3).png">
+    <title>Login - সফলতার ডাক</title>
+
+</head>
+
+<%- include("layout/header") %>
+
+    <!-- Header is finished ! -->
+    <div class="login-form-wrapper">
+        <div class="form-main-container ">
+            <%- include("layout/success-alert") %>
+
+                <div class="main-w3layouts wrapper ">
+                    <div class="common-input-page-heading">
+                        <h1>লগইন করুন</h1>
+                        <p>যাতে <span class="gontobyo"> সফলতার ডাক </span>-এ আপনিও আমাদের সাথে যুক্ত হতে পারেন। </p>
+                    </div>
+
+                    <div class="main-agileinfo ">
+                        <div class="agileits-top">
+                            <div class="login_reset-pass_container">
+                                <form action="/login" method="post" id="login-form">
+                                    <input class="text-inputs <%= error.email ? 'invalid-text-input' : '' %>"
+                                        type="email" name="email" value="<%= value.email ? value.email : '' %>"
+                                        placeholder="Email Address" />
+
+                                    <div class="error-box valid-input <%= error.email ? 'invalid-input' : '' %>">
+                                        <i class="fa-solid fa-circle-exclamation error-i"></i>
+                                        <p class="error-p">
+                                            <%= error.email && error.email %>
+                                        </p>
+                                    </div>
+
+                                    <% if(!error.email){ %>
+                                        <input class="text-inputs <%= error.password ? 'invalid-text-input' : '' %>"
+                                            type="password" name="password"
+                                            value="<%= value.password ? value.password : '' %>"
+                                            placeholder="Password" />
+                                        <div class="error-box valid-input <%= error.password ? 'invalid-input' : '' %>">
+                                            <i class="fa-solid fa-circle-exclamation error-i"></i>
+                                            <p class="error-p">
+                                                <%= error.password && error.password %>
+                                            </p>
+                                        </div>
+
+                                        <% } %>
+
+                                            <input type="submit" value="SIGN UP" id="login_submit_btn" />
+                                </form>
+
+                                <div
+                                    class="error-box valid-input <%= !error.email && error.password ? 'invalid-input' : '' %>">
+
+                                    <form action="/reset-password-verificationCode" method="post">
+
+                                        <input class="d-none" name="user_email" value="<%= value.email %>" />
+
+                                        <button class="pass-reset" type="submit">Forgot password?</button>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <p class="link-offer">
+                                অ্যাকাউন্ট নেই? <br />এখনই<a href="/register" class="login-and-register-link"
+                                    id="login-address"> নিবন্ধন </a> করুন!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+    </div>
+    <ul class="colorlib-bubbles bubbles-register">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!-- Ragister Section is finished ! -->
+
+    <%- include("layout/footer") %>
+
+        <!-- Footer Section is finished ! -->
+
+        <script src="./Js/main.js"></script>
+        </body>
+
+</html>

@@ -1,0 +1,138 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome Icon cdn link is given below. -->
+    <script src="https://kit.fontawesome.com/8b9110ef0c.js" crossorigin="anonymous"></script>
+    <!-- Google Font cdn link is given below. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <!-- Eexternal CSS link is given below. -->
+    <link rel="stylesheet" href="./Css/style.css">
+    <link rel="stylesheet" href="./Css/golpo-feature-kobita.css">
+    <link rel="shortcut icon" type="x-icon" href="./Image/favicon (3).png">
+    <title>লিখনি - সফলতার ডাক</title>
+
+
+</head>
+
+
+<%- include("layout/header") %>
+
+    <!-- Header is finished ! -->
+
+    <%- include("layout/success-alert") %>
+
+        <div class="section-wrapper">
+
+            <% userApprovedStories.sort(function(a, b) { return new Date(b.post_time) - new Date(a.post_time); });
+                userApprovedStories.forEach(golpo=>{ %>
+
+                <section id="<%= golpo.story_title %>">
+                    <h1>
+                        <%= golpo.story_title %>
+                    </h1>
+                    <div class="content ">
+                        <div class="image_container ">
+                            <img src="<%=golpo.storyimage %>" alt="Writting Image">
+                        </div>
+                        <div class="text_container">
+                            <p id="main-golpo">
+                                <%= golpo.story%>
+                                    <h4>-
+                                        <%= golpo.writter_name %>
+                                    </h4>
+                                    <h5 style="margin: 3px 0px 0px 12px; color: gray; ">
+                                        <%= golpo.post_time %>
+                                    </h5>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="story-devider ">
+                    <div class="devider-line "></div>
+                    <div class="devider-star "><i class="fa-solid fa-star-of-david "></i></div>
+                    <div class="devider-line "></div>
+                </div>
+
+                <% }) %>
+
+                    <section id="ঈমান কাকে বলে?">
+                        <h1>ঈমান কাকে বলে?</h1>
+                        <div class="content">
+                            <div class="image_container"><img src="/Image/iman.jpg" alt="Writting Image">
+                            </div>
+
+                            <div class="text_container ">
+                                <p id="main-golpo">
+                                    ইসলামি পরিভাষায় শরিয়তের যাবতীয় বিধি বিধান অন্তরে বিশ্বাস করা মুখে স্বীকার করা এবং
+                                    তদনুযায়ী আমল করাকে ইমান বলে৷
+
+                                    ইমানের পরিচয় সম্পর্কে বাসুলুল্লাহ (সা.) বলেনঃ
+                                    اَنْ تُوْمِنَ بِاللّٰهِ وَمَلَا ءِكَتِهٖ وَ كُتُبِهٖ وَرُسُلِهٖ وَالْيَوْمِ
+                                    الْاٰخِرِ وَتُوْمِنَ بِالْقَدَرِخَيْرِهٖ وَشَرِْهٖ
+
+                                    অর্থঃ ইমান হচ্ছে আল্লাহ তার ফেরেশতাকুল, কিতাবসমূহ, রাসুলগণ, পরকাল এবং ভাগ্যের ভালো
+                                    মন্দের (ভালো মন্দ আল্লাহ তায়ালার পক্ষ থেকেই হয়) প্রতি বিশ্বাস স্থাপন করা৷ "(মুসলিম)"
+
+                                    প্রকৃতপক্ষে ইসলামের মূল বিষয়গুলোর প্রতি পূর্ণ বিশ্বাসকেই ইমান বলা হয়। ইমানের মৌলিক
+                                    বিষয়গুলো আল্লাহর বাণী আল-কুরআন ও রাসুলুল্লাহ (স.) এর পবিত্র হাদিসে বিস্তৃতভাবে
+                                    বর্ণনা করা হয়েছে৷ ইমানে মুফাসসালে ইমানের মৌলিক বিষয়গুলো একত্রে বর্ণিত হয়েছে৷ যেমনঃ
+                                    اٰمَنْتُ بِاللّٰهِ وَمَلَا ءِكَتِهٖ وَكُتُبِهٖ وَرُسُلِهٖ وَالْيَوْمِ الْاٰخِرِ
+                                    وَالْقَدْرِ خَيْرِهٖ وَشَرِْهٖ مِنَ اللّٰهِ تَعَا لٰي وَالْبَعْثِ بَعْدَالْمَوْتِ
+
+                                    অর্থঃ আমি ইমান আনলাম আল্লাহর প্রতি, তাঁর ফেরেশতাগণের প্রতি, তাঁর কিতাবগুলোর প্রতি,
+                                    তাঁর রাসুলগণের প্রতি, আখিরাতের প্রতি, তকদিরের প্রতি যার ভালো মন্দ আল্লাহ তায়ালার
+                                    নিকট থেকেই হয় এবং মৃত্যুর পর পুনঃরুথানের প্রতি৷" বর্ণিত বিষয়গুলোর প্রতি সুদৃঢ় আস্থা
+                                    ও বিশ্বাস ব্যতীত ইমানদার হওয়া যায় না৷ আর যিনি এগুলোতে পূর্ণ বিশ্বাস স্থাপন করেন তাকে
+                                    মুমিন বলা হয়৷
+                                    ইমান ও ইসলাম দুটি অত্যন্ত গুরুত্বপূর্ণ পরিভাষা৷ ইমান অর্থ বিশ্বাস৷ ইসলামের মূল
+                                    বিষয়গুলোর প্রতি আন্তরিক বিশ্বাস মৌখিক স্বীকৃতি ও তদনুযায়ী আমল করাকে ইমান বলা হয়৷
+                                    অন্যদিকে ইসলাম অর্থ আন্তসমর্পণ আনুগত্য ইত্যাদি৷ মহান আল্লাহর যাবতীয় আদেশ নিষেধ
+                                    বিনাদ্বিধায় মেনে নেওয়ার মাধ্যমে তাঁর প্রতি পূর্ণাঙ্গরূপে আত্মসমর্পণ করার নাম হল
+                                    ইসলাম৷
+                                    ইমান ও ইসলামের মধ্যে অত্যন্ত ঘনিষ্ঠ ও অবিচ্ছেদ্য সম্পর্ক বিদ্যমান৷ এদের একটি ব্যতীত
+                                    অন্যটি কল্পনাও করা যায় না৷ এদের একটি অপরটির উপর গভীরভাবে নির্ভরশীল৷ ইমান ও ইসলামের
+                                    সম্পর্ক গাছের মূল ও শাখা প্রশাখার মতো৷ ইমান হল গাছের শিকড় বা মূল আর ইসলাম তার শাখা
+                                    প্রশাখা৷ মূল না থাকলে শাখা প্রশাখা হয় না৷ আর শাখা প্রশাখা না থাকলে মূল বা শিকড়
+                                    মূল্যহীন৷
+
+                                    তদ্রূপ ইমান ও ইসলাম একটি অন্যটি ব্যতীত পূর্ণাঙ্গ হয় না৷ ইমান মানুষের অন্তরে আল্লাহর
+                                    প্রতি বিশ্বাস অনুরাগ ও তাঁর সন্ত্তষ্টি লাভের বাসনা সৃষ্টি করে৷ আর তাতে ইবাদত ও
+                                    আনুগত্যের মাধ্যমে সজীব ও সতেজ হয়ে পরিপূর্ণ সৌন্দর্যে বিকশিত হয় ইসলাম৷ ইসলাম হল
+                                    ইমানের বহিঃপ্রকাশ৷ ইমান হল অন্তরের সাথে সম্পৃক্ত৷ আর ইসলাম বাহ্যিক আচার আচরণ ও
+                                    কার্যাবলির সাথে সম্পৃক্ত।
+
+                                    যেমনঃ আল্লাহ রাসুল ফেরেশতা ইত্যাদি বিষয়ে বিশ্বাস করা হল ইমান৷ আর সালাত যাকাত হজ
+                                    ইত্যাদি বিষয় পালন করা হল ইসলাম৷ প্রকৃতপক্ষে ইমান ও ইসলাম একটি অপরটির পরিপূরক৷ দুনিয়া
+                                    ও আখিরাতে সফলতা লাভ করতে হলে ইমান ও ইসলাম উভয়টিকেই পরিপূর্ণভাবে স্বীয় জীবনে
+                                    বাস্তবায়ন করতে হবে৷
+                                    ইমানের সর্বপ্রথম ও সর্বপ্রধার বিষয় হল আল্লহ তায়ালার প্রতি বিশ্বাস৷ আল্লহ তায়ালা এক ও
+                                    অদ্বিতীয়৷ তিনি ব্যতীত কোন ইলাহ বা মাবুদ নেই৷ তিনি সকল কিছুর সৃষ্টিকর্তা পালনকর্তা ও
+                                    রক্ষাকর্তা৷ তিনি সকল গুণের আধার৷
+                                    তাঁর সত্তা ও গুণাবলি তুলনাহীন৷ সমস্ত প্রশংসা ও ইবাদত একমাত্র তাঁরই জন্য নির্ধারিত৷
+                                    আল্লাহ তায়ালার প্রতি এরূপ বিশ্বাস স্থাপন ইমানের সবচেয়ে গুরুত্বপূর্ণ বিষয়৷
+                                <h4> -আব্দুল্লাহ</h4>
+                                <h5 style="margin: 3px 0px 0px 12px; color: gray; ">
+                                    29/4/2023, 6:30:10 PM
+                                </h5>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+        </div>
+        <!-- Content Section is finished !  -->
+
+        <%- include("layout/footer") %>
+
+            <!-- Footer Section is finished ! -->
+
+            <script src="./Js/main.js"></script>
+            </body>
+
+</html>
