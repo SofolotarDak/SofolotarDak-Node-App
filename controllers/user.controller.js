@@ -549,7 +549,7 @@ exports.deleteUser = async (req, res) => {
             'success',
             `User '${userName}' has been deleted successfully!`
         );
-        res.redirect('/users');
+        res.redirect('/all-users');
     } catch (error) {
         console.log(error);
     }
