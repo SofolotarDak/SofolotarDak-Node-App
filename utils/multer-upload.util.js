@@ -7,10 +7,27 @@ const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'public/Uploads');
     },
-    filename: (req, file, cb) => {
-        const fileExt = path.extname(file.originalname);
-        const fileName = `${file.originalname.replace(fileExt, '').toLowerCase().split(' ').join('-')}-${Date.now()}`;
-        cb(null, fileName + fileExt);
+    fileFilter: (req, file, cb) => {
+        if (file.fieldname === 'storyimage') {
+            try {
+                const fileExt = path.extname(file.originalname);
+                const allowedExtensions = ['.png', '.jpg'];
+                const maxSize = 1 * 1024 * 1024; // 1MB
+
+                if (
+                    allowedExtensions.includes(fileExt) &&
+                    file.size <= maxSize
+                ) {
+                    cb(null, true);
+                } else {
+                    throw new Error(
+                        'Invalid file. Only PNG and JPG files up to 1MB are allowed.'
+                    );
+                }
+            } catch (error) {
+                cb(error);
+            }
+        }
     },
 });
 
